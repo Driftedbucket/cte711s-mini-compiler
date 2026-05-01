@@ -48,5 +48,6 @@ public class Codegen {
             }
     
         }
+        return assemblyCode.toString();
     }
 }
