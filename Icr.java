@@ -2,7 +2,12 @@ import java.util.ArrayList;
 
 public class Icr {
 
-    private String newTempVariable(){}
+    private int count=0;
+
+    private String newTempVariable(){
+         count++;
+         return "t"+count;
+    }
     private String generate(String line){
         //split LET keyword fi rpresent so we see LET G = A + b as G = A + b
             line=line.trim().replace("LET","");
