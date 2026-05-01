@@ -6,5 +6,18 @@ public class Codeopt {
         StringBuilder optimised = new StringBuilder();
 
         String prevStore = "";  
+
+        for (int i = 0; i < lines.length; i++) {
+            String line = lines[i].trim();
+            if (line.isEmpty()) continue;
+
+            if (line.startsWith("LOAD") && prevStore != "") {
+                String loadSrc = line.replace("LOAD  R1,", "").trim();
+                if (loadSrc.equals(prevStore)) {
+                    optimised.append("    ; [optimised away: ").append(line).append("]\n");
+                    continue;
+                }
+            }
+        }
     }
 }
