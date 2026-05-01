@@ -28,5 +28,7 @@ public class Codeopt {
                 prevStore = "";
             }
         }
+                return optimised.toString();
+
     }
 }
