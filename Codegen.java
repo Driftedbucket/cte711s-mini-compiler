@@ -37,7 +37,16 @@ public class Codegen {
                     operator="DIV";
                     operands=expr.split("/");
                 }
-    }
+
+                String left = operands[0].trim();
+                String right = operands[1].trim();
+
+                assemblyCode.append("    LOAD  R1, ").append(left).append("\n");
+                assemblyCode.append("    LOAD  R2, ").append(right).append("\n");
+                assemblyCode.append("    ").append(operator).append("    R1, R1, R2\n");
+                assemblyCode.append("    STORE R1, ").append(dest).append("\n");
+            }
     
-}
+        }
+    }
 }
