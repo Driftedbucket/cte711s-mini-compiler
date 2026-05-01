@@ -18,6 +18,15 @@ public class Codeopt {
                     continue;
                 }
             }
+
+            optimised.append("    ").append(line).append("\n");
+
+            
+            if (line.startsWith("STORE")) {
+                prevStore = line.replace("STORE R1,", "").trim();
+            } else {
+                prevStore = "";
+            }
         }
     }
 }
