@@ -14,6 +14,30 @@ public class Codegen {
 
             String dest = parts[0].trim();
             String expr = parts[1].trim();
+
+             //simple expression M = t2
+            if(!expr.contains("+") && !expr.contains("-") && !expr.contains("*") && !expr.contains("/")){
+                assemblyCode.append("    LOAD R1, ").append(expr).append("\n");
+                assemblyCode.append("    STORE R1, ").append(dest).append("\n");
+            }else{
+                //split on the operator
+                String operator;
+                String[] operands;
+            
+                if(expr.contains("+")){
+                    operator="ADD";
+                    operands=expr.split("\\+");
+                }else if(expr.contains("-")){
+                    operator="SUB";
+                    operands=expr.split("-");
+                }else if(expr.contains("*")){
+                    operator="MUL";
+                    operands=expr.split("\\*");
+                }else{
+                    operator="DIV";
+                    operands=expr.split("/");
+                }
     }
+    
 }
 }
