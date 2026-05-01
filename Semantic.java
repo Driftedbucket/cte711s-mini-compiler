@@ -1,8 +1,7 @@
 
 public class Semantic {
-    public class Semantic{
-
-    public String analyse(String line){
+    
+        public String analyse(String line){
         
         char[] forbidden={'%','$','&','<','>'};
 
@@ -14,4 +13,4 @@ public class Semantic {
         return "OK";
     }
 }
-}
+
