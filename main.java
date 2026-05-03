@@ -64,7 +64,7 @@ public class main {
             System.out.println("  [Stage 3 - Semantic]  " + semResult);
             if (!semResult.equals("OK")) { System.out.println(); continue; }
 
-            
+            //check for any errors so far, only valid lines will pass to conitue to stage 4  
             if (!valid) {
                 System.out.println("  [No errors found — line passes error check only]\n");
                 continue;
