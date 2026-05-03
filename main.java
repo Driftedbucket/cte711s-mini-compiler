@@ -130,5 +130,8 @@ public class main {
             allOutput.append("  [Stage 7 - Binary]\n").append(binResult).append("\n");
         }
 
+        //print everything at once
+        Sytem.out.print(allOutput.toString())
+
     }
 }
