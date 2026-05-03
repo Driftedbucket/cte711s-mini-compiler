@@ -30,5 +30,13 @@ public class main {
             false   // 11: END
         };
 
+        Lexer lexical = new Lexer();
+        Syntax syntax = new Syntax();
+        Semantic semantic = new Semantic();
+        Icr icr = new Icr();
+        Codegen codegen  = new Codegen();
+        Codeopt optimise = new Codeopt();
+        Machine target   = new Machine();
+
     }
 }
