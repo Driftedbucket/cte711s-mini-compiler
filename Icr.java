@@ -8,7 +8,7 @@ public class Icr {
          count++;
          return "t"+count;
     }
-    private String generate(String line){
+    public String generate(String line){
         //split LET keyword fi rpresent so we see LET G = A + b as G = A + b
             line=line.trim().replace("LET","");
 
