@@ -91,5 +91,44 @@ public class main {
         System.out.println("|||  PART 2: Compiling all at once   |||");
         System.out.println("========================================\n");
 
+        StringBuilder allOutput = new StringBuilder();
+
+        for (int i = 0; i < sourceLines.length; i++) {
+            String line   = sourceLines[i];
+            int lineNum   = i + 1;
+            boolean valid = isValidLine[i];
+
+            allOutput.append("--- Line ").append(lineNum).append(": ").append(line).append("\n");
+
+            String lexResult = lexical.analyse(line);
+            allOutput.append("  [Stage 1 - Lexical]   ").append(lexResult).append("\n");
+            if (!lexResult.equals("OK")) { allOutput.append("\n"); continue; }
+
+            String synResult = syntax.analyse(line);
+            allOutput.append("  [Stage 2 - Syntax]    ").append(synResult).append("\n");
+            if (!synResult.equals("OK")) { allOutput.append("\n"); continue; }
+
+            String semResult = semantic.analyse(line);
+            allOutput.append("  [Stage 3 - Semantic]  ").append(semResult).append("\n");
+            if (!semResult.equals("OK")) { allOutput.append("\n"); continue; }
+
+            if (!valid) {
+                allOutput.append("  [No errors — error check only]\n\n");
+                continue;
+            }
+
+            String icrResult = icr.generate(line);
+            allOutput.append("  [Stage 4 - ICR]\n").append(icrResult);
+
+            String asmResult = codegen.generate(icrResult);
+            allOutput.append("  [Stage 5 - Code Gen]\n").append(asmResult);
+
+            String optResult = optimise.optimise(asmResult);
+            allOutput.append("  [Stage 6 - Optimised]\n").append(optResult);
+
+            String binResult = target.generate(optResult);
+            allOutput.append("  [Stage 7 - Binary]\n").append(binResult).append("\n");
+        }
+
     }
 }
