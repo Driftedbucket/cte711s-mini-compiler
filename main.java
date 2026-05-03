@@ -49,40 +49,40 @@ public class main {
 
             System.out.println("--- Line " + lineNum + ": " + line);
 
-            // Stage 1: Lexical analysis
+            
             String lexResult = lexical.analyse(line);
             System.out.println("  [Stage 1 - Lexical]   " + lexResult);
             if (!lexResult.equals("OK")) { System.out.println(); continue; }
 
-            // Stage 2: Syntax analysis
+            
             String synResult = syntax.analyse(line);
             System.out.println("  [Stage 2 - Syntax]    " + synResult);
             if (!synResult.equals("OK")) { System.out.println(); continue; }
 
-            // Stage 3: Semantic analysis
+            
             String semResult = semantic.analyse(line);
             System.out.println("  [Stage 3 - Semantic]  " + semResult);
             if (!semResult.equals("OK")) { System.out.println(); continue; }
 
-            // Only valid lines proceed past stage 3
+            
             if (!valid) {
                 System.out.println("  [No errors found — line passes error check only]\n");
                 continue;
             }
 
-            // Stage 4: Intermediate Code Representation
+            
             String icrResult = icr.generate(line);
             System.out.println("  [Stage 4 - ICR]\n" + icrResult);
 
-            // Stage 5: Code Generation
+            
             String asmResult = codegen.generate(icrResult);
             System.out.println("  [Stage 5 - Code Gen]\n" + asmResult);
 
-            // Stage 6: Code Optimisation
+            
             String optResult = optimise.optimise(asmResult);
             System.out.println("  [Stage 6 - Optimised]\n" + optResult);
 
-            /* // Stage 7: Target Machine Code
+            /* 
             String binResult = target.generate(optResult);
             System.out.println("  [Stage 7 - Binary]\n" + binResult); */
         }
