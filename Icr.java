@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class Icr {
 
-    private int count=0;
+    int count=0;
 
-    private String newTempVariable(){
+    String newTempVariable(){
          count++;
          return "t"+count;
     }
@@ -37,7 +37,7 @@ public class Icr {
             }
             return sb.toString();
     }
-    private String parseExpression(String expression, ArrayList<String> icrlines){
+    public String parseExpression(String expression, ArrayList<String> icrlines){
         expression=expression.trim();
 
             int splitAt=-1;
@@ -63,7 +63,7 @@ public class Icr {
             return temp;
     }
 
-    private String parseTerm(String expression, ArrayList<String> icrlines){
+    public String parseTerm(String expression, ArrayList<String> icrlines){
         expression=expression.trim();
 
             int splitAt=-1;
