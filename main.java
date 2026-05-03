@@ -86,7 +86,10 @@ public class main {
             String binResult = target.generate(optResult);
             System.out.println("  [Stage 7 - Binary]\n" + binResult); */
         }
-
+        //part 2 -> compiling all at once and printing at hte end
+        System.out.println("========================================");
+        System.out.println("|||  PART 2: Compiling all at once   |||");
+        System.out.println("========================================\n");
 
     }
 }
